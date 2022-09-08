@@ -39,15 +39,16 @@ cat data.csv | python mapper_1.py | sort | python reducer_1.py | python mapper_2
 
 
 
-- start hortonworks via VirtualBox
+- start Hortonworks via VirtualBox
 - copy data.csv
 
 ## Versioning
 
-[SemVer](https://semver.org/) is used for versioning. For the versions available, see the tags on this repository.
+[SemVer](https://semver.org/) is used for versioning. For the versions available, see the [tags](https://github.com/bfmcneill/hadoop-mini-project/tags) on this repository.
 
 ## Authors
  - Ben McNeill - *Initial Work* - [bfmcneill](https://github.com/bfmcneill)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
