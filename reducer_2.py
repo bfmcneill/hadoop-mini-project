@@ -16,14 +16,14 @@ def reset():
 def flush():
     """write the output"""
     if current_year_make:
-        print "%s\t%s" % (current_year_make,count)
+        print "{}\t{}".format(current_year_make,count)
 
 
 for line in sys.stdin:
 
     # parse the input from mapper and update the master info
     year,make, uno = line.strip().split("\t")
-    year_make = "%s__%s" % (year,make)
+    year_make = "{}__{}".format(year,make)
 
     # detect key changes
     if current_year_make != year_make:

@@ -25,8 +25,7 @@ def flush():
     """write the output"""
 
     if current_vin:
-        print "%s\t%s\t%s\t%s" % (current_vin,year,make,incidents)
-
+        print "{}\t{}\t{}\t{}".format(current_vin,year,make,incidents)
 
 for line in sys.stdin:
 

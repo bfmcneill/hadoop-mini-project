@@ -13,5 +13,5 @@ for line in sys.stdin:
         incident_date,
         description,
     ) = line.split(",")
-
-    print "%s\t%s\t%s\t%s" % (vin_number, incident_type, make, year)
+    print '{}\t{}\t{}\t{}'.format(vin_number, incident_type, make, year)
+    
