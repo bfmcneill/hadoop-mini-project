@@ -12,4 +12,4 @@ for line in sys.stdin:
         description,
     ) = line.split(",")
 
-    print("\t".join([vin_number, incident_type, make, year]))
+    print "%s\t%s\t%s\t%s" % (vin_number, incident_type, make, year)

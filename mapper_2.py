@@ -2,5 +2,6 @@ import sys
 
 for line in sys.stdin:
     vin, year, make, incidents = line.strip().split("\t")
-    for incident in incidents:
-        print(f"{year}_{make}\t{1}") if incident == "A" else None
+    for incident in incidents:        
+        if incident == 'A':
+            print "%s\t%s\t%s\1" % (year,make,1)

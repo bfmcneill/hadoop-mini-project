@@ -1,37 +1,39 @@
 import sys
 
 # define group level master information
-current_make_model = ""
+current_year_make = ""
 count = 0
 
 
 def reset():
     """Reset master info for every group"""
-    global current_make_model
+    global current_year_make
     global count
-    current_make_model = ""
+    current_year_make = ""
     count = 0
 
 
 def flush():
     """write the output"""
-    print(f"{current_make_model}\t{count}") if current_make_model else None
+    if current_year_make:
+        print "%s\t%s" % (current_year_make,count)
 
 
 for line in sys.stdin:
 
     # parse the input from mapper and update the master info
-    make_model, *data = line.strip().split("\t")
+    year,make, uno = line.strip().split("\t")
+    year_make = "%s__%s" % (year,make)
 
     # detect key changes
-    if current_make_model != make_model:
-        if current_make_model is not None:
+    if current_year_make != year_make:
+        if current_year_make is not None:
             # write result to stdout
             flush()
         reset()
 
     # update more master info after the key change handling
-    current_make_model = make_model
+    current_year_make = year_make
     count += 1
 
 
