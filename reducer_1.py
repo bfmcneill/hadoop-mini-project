@@ -1,10 +1,12 @@
+#!/usr/bin/env python
+
 import sys
 
 # define group level master information
 current_vin = ""
 year = ""
 make = ""
-incidents = list()
+incidents = ""
 
 
 def reset():
