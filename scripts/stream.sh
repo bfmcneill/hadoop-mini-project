@@ -1,6 +1,6 @@
 # place data on HDFS for processing
-hadoop fs -mkdir input
-hadoop fs -copyFromLocal data/data.csv input/data.csv
+# hadoop fs -mkdir input
+# hadoop fs -copyFromLocal data/data.csv input/data.csv
 
 # reset HDFS directories
 hadoop fs -rm -r output
@@ -16,7 +16,7 @@ hadoop jar \
 -mapper mapper_1.py \
 -reducer reducer_1.py \
 -input input/data.csv \
--output output/all_accidents
+-output output/all_accidents > tee -a stdout.log
 
 # step 2
 hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
