@@ -30,6 +30,8 @@ $ Python 2.7.x
 
 ### End to end test
 
+#### Local
+
 - To run a local test on small subset of data run the bash pipeline
   - script is located at `scripts/local.sh`
   - script requires an argument to be passed which is the relative path to data
@@ -37,6 +39,8 @@ $ Python 2.7.x
 ```bash
 sh scripts/local.sh ./data/data.csv
 ```
+
+#### Cluster
 
 ## Deployment
 
