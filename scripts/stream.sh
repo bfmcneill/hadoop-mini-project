@@ -16,10 +16,11 @@ hadoop jar \
 -mapper mapper_1.py \
 -reducer reducer_1.py \
 -input input/data.csv \
--output output/all_accidents > tee -a stdout.log
+-output output/all_accidents
 
 # step 2
-hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
+hadoop jar \
+/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
 -files mapper_2.py,reducer_2.py \
 -mapper mapper_2.py \
 -reducer reducer_2.py \
