@@ -2,7 +2,6 @@
 sh ./fffix.sh
 
 # ensure python files are executable
-
 chmod +x ./*.py
 
 # reset HDFS input directory
