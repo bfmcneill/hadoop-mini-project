@@ -1,9 +1,16 @@
+# ensure python and shell files format is compatable with unix
+sh ./fffix.sh
+
+# ensure python files are executable
+
+chmod +x ./*.py
+
 # reset HDFS input directory
 hadoop fs -rm -r input
 
 # place data on HDFS for processing
 hadoop fs -mkdir input
-hadoop fs -copyFromLocal data/data.csv input/data.csv
+hadoop fs -copyFromLocal data.csv input/data.csv
 
 # reset HDFS output directory
 hadoop fs -rm -r output
