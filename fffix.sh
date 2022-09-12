@@ -6,6 +6,6 @@ for file in *.py ; do
     vi +':w ++ff=unix' +':q' "${file}"
 done
 
-for file in ./scripts/*.sh ; do
+for file in *.sh ; do
     vi +':w ++ff=unix' +':q' "${file}"
 done
