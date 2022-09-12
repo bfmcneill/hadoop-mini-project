@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3.6
 
 import sys
 
@@ -13,5 +13,4 @@ for line in sys.stdin:
         incident_date,
         description,
     ) = line.split(",")
-    print '{}\t{}\t{}\t{}'.format(vin_number, incident_type, make, year)
-    
+    print("\t".join([vin_number, incident_type, make, year]))

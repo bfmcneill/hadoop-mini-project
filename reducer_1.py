@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3.6
 
 import sys
 
@@ -25,20 +25,19 @@ def flush():
     """write the output"""
 
     if current_vin:
-        print "{}\t{}\t{}\t{}".format(current_vin,year,make,incidents)
+        print("\t".join([current_vin, year, make, incidents]))
+
 
 for line in sys.stdin:
 
     # parse the input from mapper and update the master info
     # vin, incident_type, *data = line.strip().split("\t")
-    data = line.strip().split('\t')
-    _vin = data[0]
-    _incident_type = data[1]
+    _vin, _incident_type, *data = line.strip().split("\t")
 
-    if len(data) >2:
+    if len(data) > 2:
         # make and year exists
-        make = data[2]
-        year= data[3]
+        make = data[0]
+        year = data[1]
 
     # detect key changes
     if current_vin != _vin:
@@ -50,7 +49,6 @@ for line in sys.stdin:
     # update more master info after the key change handling
     current_vin = _vin
     incidents += _incident_type
-
 
 
 # do not forget to output the last group if needed

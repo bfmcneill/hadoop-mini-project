@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/python3.6
+
 
 import sys
 
@@ -17,14 +18,14 @@ def reset():
 
 def flush():
     """write the output"""
-    print "{}\t{}".format(current_year_make,count)
+    print("\t".join([current_year_make, count]))
 
 
 for line in sys.stdin:
 
     # parse the input from mapper and update the master info
-    year,make, uno = line.strip().split("\t")
-    year_make = "{}__{}".format(year,make)
+    year, make, uno = line.strip().split("\t")
+    year_make = f"{year}__{make}"
 
     # detect key changes
     if current_year_make != year_make:
