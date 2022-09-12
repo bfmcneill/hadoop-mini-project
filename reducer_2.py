@@ -1,6 +1,5 @@
 #!/usr/bin/python3.6
 
-
 import sys
 
 # define group level master information
@@ -18,24 +17,23 @@ def reset():
 
 def flush():
     """write the output"""
-    print("\t".join([current_year_make, count]))
+    print(f"{current_year_make}\t{count}") if current_year_make else None
 
 
 for line in sys.stdin:
 
     # parse the input from mapper and update the master info
-    year, make, uno = line.strip().split("\t")
-    year_make = f"{year}__{make}"
+    year, make = line.strip().split("\t")
 
     # detect key changes
-    if current_year_make != year_make:
+    if current_year_make != f"{year}_{make}":
         if current_year_make is not None:
             # write result to stdout
             flush()
         reset()
 
     # update more master info after the key change handling
-    current_year_make = year_make
+    current_year_make = f"{year}_{make}"
     count += 1
 
 

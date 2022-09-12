@@ -13,4 +13,5 @@ for line in sys.stdin:
         incident_date,
         description,
     ) = line.split(",")
+
     print("\t".join([vin_number, incident_type, make, year]))

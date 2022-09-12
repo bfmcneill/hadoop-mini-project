@@ -1,12 +1,11 @@
 #!/usr/bin/python3.6
-
 import sys
 
 # define group level master information
 current_vin = ""
 year = ""
 make = ""
-incidents = ""
+incidents = list()
 
 
 def reset():
@@ -18,37 +17,34 @@ def reset():
     current_vin = ""
     year = ""
     make = ""
-    incidents = ""
+    incidents = list()
 
 
 def flush():
     """write the output"""
-
-    if current_vin:
-        print("\t".join([current_vin, year, make, incidents]))
+    print(
+        f"{current_vin}\t{year}\t{make}\t{''.join(incidents)}"
+    ) if current_vin else None
 
 
 for line in sys.stdin:
 
     # parse the input from mapper and update the master info
-    # vin, incident_type, *data = line.strip().split("\t")
-    _vin, _incident_type, *data = line.strip().split("\t")
-
-    if len(data) > 2:
-        # make and year exists
-        make = data[0]
-        year = data[1]
+    vin, incident_type, *data = line.strip().split("\t")
 
     # detect key changes
-    if current_vin != _vin:
+    if current_vin != vin:
         if current_vin is not None:
             # write result to stdout
             flush()
         reset()
 
     # update more master info after the key change handling
-    current_vin = _vin
-    incidents += _incident_type
+    current_vin = vin
+    incidents.append(incident_type)
+
+    if incident_type == "I":
+        make, year = data
 
 
 # do not forget to output the last group if needed
