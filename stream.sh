@@ -1,13 +1,12 @@
+# reset HDFS input directory
+hadoop fs -rm -r input
+
 # place data on HDFS for processing
-# hadoop fs -mkdir input
-# hadoop fs -copyFromLocal data/data.csv input/data.csv
+hadoop fs -mkdir input
+hadoop fs -copyFromLocal data/data.csv input/data.csv
 
-# reset HDFS directories
+# reset HDFS output directory
 hadoop fs -rm -r output
-
-# hadoop-streaming-2.7.3.2.6.5.0-292.jar
-# hadoop-streaming.jar
-# hadoop-*streaming*.jar
 
 # step 1
 hadoop jar \
