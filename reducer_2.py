@@ -17,8 +17,7 @@ def reset():
 
 def flush():
     """write the output"""
-    if current_year_make:
-        print "{}\t{}".format(current_year_make,count)
+    print "{}\t{}".format(current_year_make,count)
 
 
 for line in sys.stdin:
