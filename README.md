@@ -66,14 +66,14 @@ sh ./local.sh data.csv
 - redirect output with stderr to file
 
 ```bash
-FPATH=stread_$(date '+%s').log
+FPATH=stream_$(date '+%s').log
 sh ./stream.sh data.csv &> $FPATH
 ```
 
 - redirect output with stderr to file and stdout
 
 ```bash
-FPATH=stread_$(date '+%s').log
+FPATH=stream_$(date '+%s').log
 sh ./stream.sh data.csv 2>&1 | tee $FPATH
 ```
 
