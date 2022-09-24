@@ -1,6 +1,3 @@
-# ensure python and shell files format is compatable with unix
-sh ./fffix.sh
-
 # ensure python files are executable
 chmod +x ./*.py
 
