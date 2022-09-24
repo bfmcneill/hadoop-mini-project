@@ -51,17 +51,26 @@ Host 127.0.0.1
 
 - open a vs code remote connection, when asked for password use the default that comes with hortonworks image --> `maria_dev`
 
-## Running the script locally (no cluster)
+## Running on localhost (no cluster)
 
-- To run a local test on small subset of data run the bash pipeline
-  - script is located at `scripts/local.sh`
-  - script requires an argument to be passed which is the relative path to data
+- To run a local test on small subset of data with a bash pipeline
+  - script is located at `/local.sh`
+  - script requires an argument to be passed which is the relative path to `data.csv`
 
 ```bash
 sh ./local.sh data.csv
 ```
 
-#### Run script on single node cluster supplied by hortonworks
+#### Run on cluster supplied by hortonworks
+
+- redirect output with stderr to file
+
+```bash
+FPATH=stread_$(date '+%s').log
+sh ./stream.sh data.csv &> $FPATH
+```
+
+- redirect output with stderr to file and stdout
 
 ```bash
 FPATH=stread_$(date '+%s').log
