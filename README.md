@@ -26,7 +26,17 @@ $ Python 2.7.x
 - Install Python 2 via [python.org](https://www.python.org/)
 - [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-### Connect to virtualbox
+
+## Deployment
+
+- [Download Hortonworks HDP](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html)
+
+  - select VirtualBox
+  - Note - During testing I could not find an easy way to get the docker version to run on x86 as well as either version (docker / VirtualBox) to run on M1 Apple silicon even when using Rosetta.
+
+- start Hortonworks via VirtualBox image
+
+### Connect to virtualbox via ssh using vscode as a client
 
 - verify `.\ssh\config` exists in user home
 - ensure the following config is located in  `.\ssh\config`
@@ -41,31 +51,22 @@ Host 127.0.0.1
 
 - open a vs code remote connection, when asked for password use the default that comes with hortonworks image --> `maria_dev`
 
-## Running the tests
-
-### End to end test
-
-#### Local
+## Running the script locally (no cluster)
 
 - To run a local test on small subset of data run the bash pipeline
   - script is located at `scripts/local.sh`
   - script requires an argument to be passed which is the relative path to data
 
 ```bash
-sh scripts/local.sh ./data/data.csv
+sh ./local.sh data.csv
 ```
 
-#### Cluster
+#### Run script on single node cluster supplied by hortonworks
 
-## Deployment
-
-- [Download Hortonworks HDP](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html)
-
-  - select VirtualBox
-  - Note - During testing I could not find an easy way to get the docker version to run on x86 as well as either version (docker / VirtualBox) to run on M1 Apple silicon even when using Rosetta.
-
-- start Hortonworks via VirtualBox
-- copy data.csv
+```bash
+FPATH=stread_$(date '+%s').log
+sh ./stream.sh data.csv 2>&1 | tee $FPATH
+```
 
 ## Versioning
 
