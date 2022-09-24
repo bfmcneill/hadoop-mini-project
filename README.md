@@ -26,6 +26,21 @@ $ Python 2.7.x
 - Install Python 2 via [python.org](https://www.python.org/)
 - [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
+### Connect to virtualbox
+
+- verify `.\ssh\config` exists in user home
+- ensure the following config is located in  `.\ssh\config`
+
+```bash
+Host 127.0.0.1
+  HostName 127.0.0.1
+  User maria_dev
+  Port 2222
+  PasswordAuthentication yes
+```
+
+- open a vs code remote connection, when asked for password use the default that comes with hortonworks image --> `maria_dev`
+
 ## Running the tests
 
 ### End to end test
